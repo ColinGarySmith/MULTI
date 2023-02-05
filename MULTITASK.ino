@@ -117,9 +117,7 @@ void FlashLED( void )
 void StepCheck(void)
 { // this gets called every 10 milliseconds to check the input status of pin 4.
 
- // if ((digitalRead(4) == 0) && (motorProcess == 0))
-    // to run the example with a button attached to pin 4, uncomment the above line and comment the line below.
-  if ((motorProcess == 0))
+  if ((digitalRead(4) == 0) && (motorProcess == 0))  // motorprocess is checked here so that the chain doesn't restart if the button is pushed again.
   {
     motorProcess = 1; // will stop the above from being called again until these chained routines are all finished.
     registerProcess(Step1, 0, RUN_ONCE); // when returned, immediately start the animation. to delay the start of the animation, just change the 0 to something else.
